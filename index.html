@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Scale of Everything</title>
+<meta name="description" content="Explore the size of everything, from the Planck length to the observable universe, on a logarithmic scale.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="bar">
+  <h1 class="brand">The Scale of Everything</h1>
+  <p class="live" aria-label="Current scale"><b id="liveSize">–</b> <span id="liveOom"></span></p>
+  <div class="tools">
+    <input id="search" list="names" type="search" placeholder="Search objects" aria-label="Search objects" autocomplete="off">
+    <datalist id="names"></datalist>
+    <select id="unit" aria-label="Unit"><option value="auto">Auto unit</option></select>
+    <button id="sci" aria-pressed="false" title="Show sizes in scientific notation">10ⁿ</button>
+    <button id="human" aria-pressed="false" title="Compare with a 1.7 m human">Human view</button>
+    <button id="learn" aria-pressed="false" title="Show extra facts">Learn</button>
+    <button id="cmpBtn" aria-pressed="false" title="Compare two objects">Compare</button>
+    <button id="rm" aria-pressed="false" title="Reduce motion">Calm</button>
+    <button id="surprise" title="Jump to a random object (S)">Surprise me</button>
+  </div>
+  <div id="chips" class="chips" role="group" aria-label="Category filters"></div>
+</header>
+
+<main>
+  <section class="stage" aria-label="Scale explorer">
+    <canvas id="cv" tabindex="0" aria-label="Logarithmic scale ruler. Drag to pan, scroll or pinch to zoom, arrow keys to step between objects."></canvas>
+    <div class="zoom">
+      <button data-act="prev" aria-label="Previous object (←)">‹</button>
+      <button data-act="out" aria-label="Zoom out (−)">−</button>
+      <button data-act="reset" aria-label="Reset view (R)">⟲</button>
+      <button data-act="in" aria-label="Zoom in (+)">+</button>
+      <button data-act="next" aria-label="Next object (→)">›</button>
+    </div>
+  </section>
+  <aside id="panel" aria-live="polite" aria-label="Object information"></aside>
+</main>
+
+<footer class="time">
+  <input id="prog" type="range" min="0" max="1000" value="0" aria-label="Position on the full scale, smallest to largest">
+  <div id="miles" aria-label="Milestones"></div>
+</footer>
+
+<div id="intro" role="dialog" aria-labelledby="introTitle">
+  <div>
+    <h2 id="introTitle">THE SCALE OF EVERYTHING</h2>
+    <p class="sub">From the smallest scales of reality to the observable universe.</p>
+    <button id="start" class="go">Start Exploring</button>
+    <p class="note">Each step changes the <abbr title="Each step multiplies the size by a fixed factor, here ×10.">scale</abbr>, not the distance you travel. You are not moving through space. The ruler is logarithmic: every tick is ten times bigger than the last.</p>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
